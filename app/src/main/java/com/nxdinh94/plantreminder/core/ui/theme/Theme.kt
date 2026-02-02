@@ -8,6 +8,7 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
@@ -16,13 +17,14 @@ private val DarkColorScheme = darkColorScheme(
     tertiary = Teal80,
     background = DarkBackground,
     surface = DarkSurface,
+    onSurfaceVariant = Color(0xFFA6A09B),
     onPrimary = DarkOnSurface,
     onSecondary = DarkOnSurface,
     onTertiary = DarkOnSurface,
     onBackground = DarkOnSurface,
     onSurface = DarkOnSurface,
     error = ErrorDark,
-    onError = DarkOnSurface
+    onError = DarkOnSurface,
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -31,6 +33,7 @@ private val LightColorScheme = lightColorScheme(
     tertiary = Teal40,
     background = LightBackground,
     surface = LightSurface,
+    onSurfaceVariant = Color(0xFFA6A09B),
     onPrimary = LightOnSurface,
     onSecondary = LightOnSurface,
     onTertiary = LightOnSurface,
@@ -43,7 +46,7 @@ private val LightColorScheme = lightColorScheme(
 @Composable
 fun PlantReminderTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {

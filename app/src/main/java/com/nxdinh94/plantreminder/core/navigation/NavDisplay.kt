@@ -1,27 +1,29 @@
 package com.nxdinh94.plantreminder.core.navigation
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.NavDisplay
-import com.nxdinh94.plantreminder.camera.presentation.screen.CameraRoute
-import com.nxdinh94.plantreminder.camera.presentation.screen.CameraScreen
+import com.nxdinh94.plantreminder.camera.presentation.screen.NotesRoute
+import com.nxdinh94.plantreminder.camera.presentation.screen.NotesScreen
 import com.nxdinh94.plantreminder.chat.presentation.screen.detail.ChatDetailRoute
 import com.nxdinh94.plantreminder.chat.presentation.screen.detail.ChatDetailScreen
-import com.nxdinh94.plantreminder.chat.presentation.screen.list.ChatListRoute
-import com.nxdinh94.plantreminder.chat.presentation.screen.list.ChatListScreen
+import com.nxdinh94.plantreminder.chat.presentation.screen.list.PlantsRoute
+import com.nxdinh94.plantreminder.chat.presentation.screen.list.PlantsScreen
 import com.nxdinh94.plantreminder.home.presentation.screen.detail.PlantDetailRoute
 import com.nxdinh94.plantreminder.home.presentation.screen.detail.PlantDetailScreen
+import com.nxdinh94.plantreminder.home.presentation.screen.green.TimeLineRoute
+import com.nxdinh94.plantreminder.home.presentation.screen.green.TimeLineScreen
 import com.nxdinh94.plantreminder.home.presentation.screen.home.HomeRoute
+import com.nxdinh94.plantreminder.home.presentation.screen.home.HomeScreen
+import com.nxdinh94.plantreminder.home.presentation.screen.home.HomeViewModel
 import com.nxdinh94.plantreminder.home.presentation.screen.home.Plants
+
 
 @Composable
 fun PlantReminderNavDisplay(
     topLevelBackStack: TopLevelBackStack<Any>,
+    homeViewModel: HomeViewModel,
     modifier: Modifier = Modifier
 ) {
     NavDisplay(
@@ -31,15 +33,16 @@ fun PlantReminderNavDisplay(
         entryProvider = entryProvider {
             // Home feature screens
             entry<HomeRoute> {
-                Plants(
+                HomeScreen(
+                    viewModel = homeViewModel,
                     onPlantClick = { plantId ->
-                        topLevelBackStack.add(PlantDetailRoute(plantId = plantId))
+                         topLevelBackStack.add(PlantDetailRoute(plantId = plantId))
                     }
                 )
             }
 
             entry<Plants> {
-                Plants(
+                com.nxdinh94.plantreminder.home.presentation.screen.home.Plants(
                     onPlantClick = { plantId ->
                         topLevelBackStack.add(PlantDetailRoute(plantId = plantId))
                     }
@@ -53,10 +56,10 @@ fun PlantReminderNavDisplay(
                 )
             }
 
-            // Chat feature screens
-            entry<ChatListRoute> {
-                ChatListScreen(
-                    onChatClick = { topLevelBackStack.add(ChatDetailRoute) }
+            // Chat feature screens (mapped to PlantsRoute as per ChatListScreen.kt)
+            entry<PlantsRoute> {
+                PlantsScreen(
+                    onChatClick = { } // Mock chatId
                 )
             }
 
@@ -66,20 +69,16 @@ fun PlantReminderNavDisplay(
                 )
             }
 
-            // Camera feature screens
-            entry<CameraRoute> {
-                CameraScreen()
+            // Camera feature screens (mapped to NotesRoute as per TimeLineScreen.kt)
+            entry<NotesRoute> {
+                NotesScreen()
+            }
+
+            // Green feature screens (mapped to TimeLineRoute as per GreenScreen.kt)
+            entry<TimeLineRoute> {
+                TimeLineScreen()
             }
         }
     )
 }
 
-@Composable
-private fun SettingsScreenPlaceholder() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Text("Settings")
-    }
-}

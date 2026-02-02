@@ -5,23 +5,29 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.SnapshotStateList
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation3.runtime.NavKey
-import com.nxdinh94.plantreminder.camera.presentation.screen.CameraRoute
-import com.nxdinh94.plantreminder.chat.presentation.screen.list.ChatListRoute
+import com.nxdinh94.plantreminder.camera.presentation.screen.NotesRoute
+import com.nxdinh94.plantreminder.chat.presentation.screen.list.PlantsRoute
+import com.nxdinh94.plantreminder.home.presentation.screen.green.TimeLineRoute
 import com.nxdinh94.plantreminder.home.presentation.screen.home.HomeRoute
 
 /**
  * Base interface for top-level navigation routes that appear in bottom navigation
  */
 interface TopLevelRoute : NavKey {
-    val icon: ImageVector
+    val icon: Int
+    val name: Int
 }
 
 /**
  * List of all top-level routes for bottom navigation bar
  */
-val TOP_LEVEL_ROUTES: List<TopLevelRoute> = listOf(HomeRoute, ChatListRoute, CameraRoute)
+val TOP_LEVEL_ROUTES: List<TopLevelRoute> = listOf(
+    HomeRoute,
+    PlantsRoute,
+    NotesRoute,
+    TimeLineRoute
+)
 
 /**
  * Manages back stacks for each top-level navigation destination.

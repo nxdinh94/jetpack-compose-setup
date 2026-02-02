@@ -32,4 +32,10 @@
     <string name="error_loading_plants">Lỗi khi tải danh sách cây</string>
     <string name="error_adding_plant">Lỗi khi thêm cây</string>
     <string name="error_deleting_plant">Lỗi khi xóa cây</string>
+
+    <string name="nav_item_home">Trang chủ</string>
+    <string name="nav_item_plants">Cây trồng</string>
+    <string name="nav_item_notes">Ghi chú</string>
+    <string name="nav_item_timeline">Nhật ký</string>
+    <string name="nav_item_settings">Cài đặt</string>
 </resources>

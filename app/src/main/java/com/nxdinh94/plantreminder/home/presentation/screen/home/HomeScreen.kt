@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.WaterDrop
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
@@ -43,6 +44,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -50,6 +52,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.NavKey
 import com.nxdinh94.plantreminder.R
 import com.nxdinh94.plantreminder.core.common.AppContainer
+import com.nxdinh94.plantreminder.core.navigation.TopLevelRoute
 import com.nxdinh94.plantreminder.home.domain.model.Plant
 import kotlinx.serialization.Serializable
 import java.text.SimpleDateFormat
@@ -58,6 +61,12 @@ import java.util.Locale
 
 @Serializable
 data object Plants : NavKey
+
+@Serializable
+data object HomeRoute : TopLevelRoute {
+    override val icon: Int = R.drawable.home
+    override val name: Int = R.string.nav_item_home
+}
 
 
 @OptIn(ExperimentalMaterial3Api::class)

@@ -19,20 +19,21 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation3.runtime.NavKey
 import com.nxdinh94.plantreminder.core.navigation.TopLevelRoute
 import kotlinx.serialization.Serializable
-
+import com.nxdinh94.plantreminder.R
 /**
  * Navigation key for Chat List Screen
  */
 @Serializable
-data object ChatListRoute : TopLevelRoute {
-    override val icon: ImageVector = Icons.Default.Face
+data object PlantsRoute : TopLevelRoute {
+    override val icon: Int = R.drawable.plant
+    override val name: Int = R.string.nav_item_plants
 }
 
 /**
  * Chat List Screen - displays list of conversations
  */
 @Composable
-fun ChatListScreen(
+fun PlantsScreen(
     onChatClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -42,12 +43,6 @@ fun ChatListScreen(
             .background(Color.Green),
         contentAlignment = Alignment.Center
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("Chat List Screen", color = Color.White)
-            Spacer(modifier = Modifier.height(16.dp))
-            Button(onClick = onChatClick) {
-                Text("Go to conversation")
-            }
-        }
+        Text("Chat List Screen", color = Color.White)
     }
 }
