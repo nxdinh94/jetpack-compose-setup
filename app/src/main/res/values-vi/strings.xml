@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nhắc Nhở Tưới Cây</string>
+
+    <!-- Home Screen -->
+    <string name="add_plant">Thêm Cây</string>
+    <string name="no_plants_title">Chưa Có Cây Nào</string>
+    <string name="no_plants_message">Nhấn nút + để thêm cây đầu tiên của bạn</string>
+    <string name="delete_plant">Xóa Cây</string>
+    <string name="water_plant">Tưới Cây</string>
+    <string name="next_watering">Tưới tiếp theo: %1$s</string>
+
+    <!-- Add Plant Dialog -->
+    <string name="plant_name">Tên Cây</string>
+    <string name="plant_species">Loài (tùy chọn)</string>
+    <string name="watering_interval">Khoảng cách tưới (ngày)</string>
+    <string name="notes">Ghi chú (tùy chọn)</string>
+    <string name="add">Thêm</string>
+    <string name="cancel">Hủy</string>
+
+    <!-- Detail Screen -->
+    <string name="plant_details">Chi Tiết Cây</string>
+    <string name="back">Quay Lại</string>
+    <string name="plant_info">Thông Tin Cây</string>
+    <string name="watering_schedule">Lịch Tưới</string>
+    <string name="species">Loài</string>
+    <string name="watering_interval_days">Khoảng Cách Tưới</string>
+    <string name="last_watered">Tưới Lần Cuối</string>
+    <string name="plant_not_found">Không tìm thấy cây</string>
+
+    <!-- Errors -->
+    <string name="error_loading_plants">Lỗi khi tải danh sách cây</string>
+    <string name="error_adding_plant">Lỗi khi thêm cây</string>
+    <string name="error_deleting_plant">Lỗi khi xóa cây</string>
+</resources>

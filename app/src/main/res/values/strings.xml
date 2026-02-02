@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Plant Reminder</string>
+
+    <!-- Home Screen -->
+    <string name="add_plant">Add Plant</string>
+    <string name="no_plants_title">No Plants Yet</string>
+    <string name="no_plants_message">Tap the + button to add your first plant</string>
+    <string name="delete_plant">Delete Plant</string>
+    <string name="water_plant">Water Plant</string>
+    <string name="next_watering">Next watering: %1$s</string>
+
+    <!-- Add Plant Dialog -->
+    <string name="plant_name">Plant Name</string>
+    <string name="plant_species">Species (optional)</string>
+    <string name="watering_interval">Watering Interval (days)</string>
+    <string name="notes">Notes (optional)</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Detail Screen -->
+    <string name="plant_details">Plant Details</string>
+    <string name="back">Back</string>
+    <string name="plant_info">Plant Information</string>
+    <string name="watering_schedule">Watering Schedule</string>
+    <string name="species">Species</string>
+    <string name="watering_interval_days">Watering Interval</string>
+    <string name="last_watered">Last Watered</string>
+    <string name="plant_not_found">Plant not found</string>
+
+    <!-- Errors -->
+    <string name="error_loading_plants">Error loading plants</string>
+    <string name="error_adding_plant">Error adding plant</string>
+    <string name="error_deleting_plant">Error deleting plant</string>
+</resources>

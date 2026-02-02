@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="green_80">#FFA5D6A7</color>
+    <color name="green_grey_80">#FFB8C4BB</color>
+    <color name="teal_80">#FF80CBC4</color>
+
+    <color name="green_40">#FF4CAF50</color>
+    <color name="green_grey_40">#FF607D8B</color>
+    <color name="teal_40">#FF009688</color>
+
+    <color name="plant_green">#FF2E7D32</color>
+    <color name="plant_brown">#FF795548</color>
+    <color name="plant_light_green">#FFC8E6C9</color>
+</resources>
