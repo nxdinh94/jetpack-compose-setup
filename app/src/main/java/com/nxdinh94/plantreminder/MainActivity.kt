@@ -30,19 +30,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.ViewModelProvider
-import com.nxdinh94.plantreminder.home.presentation.screen.home.HomeRoute
+
 import com.nxdinh94.plantreminder.core.ui.theme.PlantReminderTheme
 import com.nxdinh94.plantreminder.core.navigation.PlantReminderNavDisplay
 import com.nxdinh94.plantreminder.core.navigation.TOP_LEVEL_ROUTES
 import com.nxdinh94.plantreminder.core.navigation.TopLevelBackStack
-import com.nxdinh94.plantreminder.core.common.AppContainer
-import com.nxdinh94.plantreminder.home.domain.usecase.AddPlantUseCase
-import com.nxdinh94.plantreminder.home.domain.usecase.DeletePlantUseCase
-import com.nxdinh94.plantreminder.home.domain.usecase.GetPlantsUseCase
-import com.nxdinh94.plantreminder.home.presentation.screen.home.HomeViewModel
+import com.nxdinh94.plantreminder.home.presentation.screen.home.HomeRoute
 import kotlin.getValue
 
+
+import com.nxdinh94.plantreminder.core.common.AppContainer
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
@@ -50,20 +47,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        AppContainer.initialize(application)
-
         setContent {
             val topLevelBackStack = remember { TopLevelBackStack<Any>(HomeRoute) }
-            val viewModel: HomeViewModel by lazy {
-                ViewModelProvider(
-                    this,
-                    HomeViewModel.Factory(
-                        getPlantsUseCase = AppContainer.getPlantsUseCase,
-                        addPlantUseCase = AppContainer.addPlantUseCase,
-                        deletePlantUseCase = AppContainer.deletePlantUseCase
-                    )
-                )[HomeViewModel::class.java]
-            }
 
             PlantReminderTheme {
                 Scaffold(
@@ -110,7 +95,6 @@ class MainActivity : ComponentActivity() {
                 ) { contentPadding ->
                     PlantReminderNavDisplay(
                         topLevelBackStack = topLevelBackStack,
-                        homeViewModel = viewModel,
                         modifier = Modifier.padding(bottom = contentPadding.calculateBottomPadding())
                     )
                 }

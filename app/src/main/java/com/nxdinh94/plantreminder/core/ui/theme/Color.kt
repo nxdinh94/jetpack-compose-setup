@@ -10,14 +10,15 @@ val Green40 = Color(0xFF009966)
 val GreenGrey40 = Color(0xFF607D8B)
 val Teal40 = Color(0xFF009688)
 
-val LightBackground = Color(0xFFFFFBFE)
+val LightBackground = Color(0xFFFFFFFF)
 val DarkBackground = Color(0xFF1C1B1F)
 
-val LightSurface = Color(0xFFFFFBFE)
+val LightSurface = Color(0xFFB7FFCF)
 val DarkSurface = Color(0xFF1C1B1F)
 
-val LightOnSurface = Color(0xFF1C1B1F)
+val LightOnSurface = Color(0xFF292524)
 val DarkOnSurface = Color(0xFFE6E1E5)
+
 
 val ErrorLight = Color(0xFFB3261E)
 val ErrorDark = Color(0xFFF2B8B5)

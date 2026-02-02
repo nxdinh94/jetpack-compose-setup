@@ -7,9 +7,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.navigation3.runtime.NavKey
 import com.nxdinh94.plantreminder.camera.presentation.screen.NotesRoute
-import com.nxdinh94.plantreminder.chat.presentation.screen.list.PlantsRoute
 import com.nxdinh94.plantreminder.home.presentation.screen.green.TimeLineRoute
 import com.nxdinh94.plantreminder.home.presentation.screen.home.HomeRoute
+import com.nxdinh94.plantreminder.plants.presentation.screen.list.PlantsRoute
 
 /**
  * Base interface for top-level navigation routes that appear in bottom navigation

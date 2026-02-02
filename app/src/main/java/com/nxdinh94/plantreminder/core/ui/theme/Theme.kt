@@ -17,12 +17,12 @@ private val DarkColorScheme = darkColorScheme(
     tertiary = Teal80,
     background = DarkBackground,
     surface = DarkSurface,
+    onSurface = DarkOnSurface,
     onSurfaceVariant = Color(0xFFA6A09B),
     onPrimary = DarkOnSurface,
     onSecondary = DarkOnSurface,
     onTertiary = DarkOnSurface,
     onBackground = DarkOnSurface,
-    onSurface = DarkOnSurface,
     error = ErrorDark,
     onError = DarkOnSurface,
 )
@@ -33,12 +33,12 @@ private val LightColorScheme = lightColorScheme(
     tertiary = Teal40,
     background = LightBackground,
     surface = LightSurface,
+    onSurface = LightOnSurface,
     onSurfaceVariant = Color(0xFFA6A09B),
     onPrimary = LightOnSurface,
     onSecondary = LightOnSurface,
     onTertiary = LightOnSurface,
     onBackground = LightOnSurface,
-    onSurface = LightOnSurface,
     error = ErrorLight,
     onError = LightOnSurface
 )

@@ -1,29 +1,22 @@
 package com.nxdinh94.plantreminder.core.navigation
 
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.togetherWith
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.NavDisplay
 import com.nxdinh94.plantreminder.camera.presentation.screen.NotesRoute
 import com.nxdinh94.plantreminder.camera.presentation.screen.NotesScreen
-import com.nxdinh94.plantreminder.chat.presentation.screen.detail.ChatDetailRoute
-import com.nxdinh94.plantreminder.chat.presentation.screen.detail.ChatDetailScreen
-import com.nxdinh94.plantreminder.chat.presentation.screen.list.PlantsRoute
-import com.nxdinh94.plantreminder.chat.presentation.screen.list.PlantsScreen
-import com.nxdinh94.plantreminder.home.presentation.screen.detail.PlantDetailRoute
-import com.nxdinh94.plantreminder.home.presentation.screen.detail.PlantDetailScreen
 import com.nxdinh94.plantreminder.home.presentation.screen.green.TimeLineRoute
 import com.nxdinh94.plantreminder.home.presentation.screen.green.TimeLineScreen
-import com.nxdinh94.plantreminder.home.presentation.screen.home.HomeRoute
-import com.nxdinh94.plantreminder.home.presentation.screen.home.HomeScreen
-import com.nxdinh94.plantreminder.home.presentation.screen.home.HomeViewModel
-import com.nxdinh94.plantreminder.home.presentation.screen.home.Plants
-
+import com.nxdinh94.plantreminder.home.presentation.screen.home.homeEntryBuilder
+import com.nxdinh94.plantreminder.plants.presentation.screen.list.plantsEntryBuilder
 
 @Composable
 fun PlantReminderNavDisplay(
     topLevelBackStack: TopLevelBackStack<Any>,
-    homeViewModel: HomeViewModel,
     modifier: Modifier = Modifier
 ) {
     NavDisplay(
@@ -32,42 +25,10 @@ fun PlantReminderNavDisplay(
         modifier = modifier,
         entryProvider = entryProvider {
             // Home feature screens
-            entry<HomeRoute> {
-                HomeScreen(
-                    viewModel = homeViewModel,
-                    onPlantClick = { plantId ->
-                         topLevelBackStack.add(PlantDetailRoute(plantId = plantId))
-                    }
-                )
-            }
-
-            entry<Plants> {
-                com.nxdinh94.plantreminder.home.presentation.screen.home.Plants(
-                    onPlantClick = { plantId ->
-                        topLevelBackStack.add(PlantDetailRoute(plantId = plantId))
-                    }
-                )
-            }
-
-            entry<PlantDetailRoute> { route ->
-                PlantDetailScreen(
-                    plantId = route.plantId,
-                    onBackClick = { topLevelBackStack.removeLast() }
-                )
-            }
+            homeEntryBuilder()
 
             // Chat feature screens (mapped to PlantsRoute as per ChatListScreen.kt)
-            entry<PlantsRoute> {
-                PlantsScreen(
-                    onChatClick = { } // Mock chatId
-                )
-            }
-
-            entry<ChatDetailRoute> {
-                ChatDetailScreen(
-                    onBackClick = { topLevelBackStack.removeLast() }
-                )
-            }
+            plantsEntryBuilder()
 
             // Camera feature screens (mapped to NotesRoute as per TimeLineScreen.kt)
             entry<NotesRoute> {
@@ -78,7 +39,22 @@ fun PlantReminderNavDisplay(
             entry<TimeLineRoute> {
                 TimeLineScreen()
             }
-        }
+        },
+        transitionSpec = {
+            // Slide in from right when navigating forward
+            slideInHorizontally(initialOffsetX = { it }) togetherWith
+                    slideOutHorizontally(targetOffsetX = { -it })
+        },
+        popTransitionSpec = {
+            // Slide in from left when navigating back
+            slideInHorizontally(initialOffsetX = { -it }) togetherWith
+                    slideOutHorizontally(targetOffsetX = { it })
+        },
+        predictivePopTransitionSpec = {
+            // Slide in from left when navigating back
+            slideInHorizontally(initialOffsetX = { -it }) togetherWith
+                    slideOutHorizontally(targetOffsetX = { it })
+        },
     )
 }
 
